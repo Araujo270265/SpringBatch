@@ -1,0 +1,25 @@
+<Configuration status="DEBUG">
+	<Appenders>
+	<Console name="logToConsole" target="SYSTEM_OUT">
+		<Patternlayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+	</Console>
+	<File name="LogToFile" FileName="D:\Curso de Spring Batch Udemy\Script\app.log">
+		<Patternlayout>
+			<Pattern>%d %c{1.} [%t] %m%n</Pattern>
+		</Patternlayout>
+	</File>
+	</Appenders>
+	<Loggers>
+		<logger name="com.udemy.springbatch" level="info" additivity="false">
+			<AppenderRef ref="logToFile"/>
+			<AppenderRef ref="logToConsole"/>
+		</Logger>
+		<logger name="com.udemy.boot" level="info" additivity="false">
+			<AppenderRef ref="logToConsole"/>
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="logToFile"/>
+			<AppenderRef ref="logToConsole"/>
+		</Root>	
+	</Loggers>
+</Configuration>	
